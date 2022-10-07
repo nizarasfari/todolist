@@ -2,7 +2,7 @@ import React from "react";
 
 
 
-const Form = ({ inputText, setInputText, todos, setTodos }) => {
+const Form = ({ inputText, setInputText, todos, setTodos,counter,setCounter }) => {
   //js code
 
   const InputTextHandler = (e) => {
@@ -12,9 +12,11 @@ const Form = ({ inputText, setInputText, todos, setTodos }) => {
   const sumbitTodoHandler = (e) => {
     e.preventDefault();
     setTodos([
-      ...todos, { text: inputText, completed: false, id: Math.random() * 1000 }
+      ...todos, { text: inputText, completed: false, }
     ]);
     setInputText("");
+    setCounter(counter +1)
+
   }
   const statusHandler = (e) => {
 
@@ -24,12 +26,13 @@ const Form = ({ inputText, setInputText, todos, setTodos }) => {
     <form>
       <input value={inputText}
         onChange={InputTextHandler} type="text" className="todo-input" />
-      <button onClick={sumbitTodoHandler} className="todo-button" type="submit">
-        <i class="fas fa-plus-square"></i>
+      <button onClick={sumbitTodoHandler}  type="submit">
+        Add
       </button>
       <div className="select">
-       
+        
       </div>
+   
     </form>
 
   )

@@ -1,19 +1,21 @@
 import React from "react";
 
-const Todo = ({todo, text,todos,setTodos}) => {
+const Todo = ({todo, text,todos,setTodos,counter,setCounter}) => {
     //events 
     const deleteHandler = () =>{
- setTodos(todos.filter(el => el.id !== todo .id))     
+    setTodos(todos.filter(todo => todo.id !== todo.id))  
+    setCounter(counter -1)
+
     };
    
     const completeHandler = () =>{
-setTodos(todos.map(item => {
-if(item.id === todo.id){
+    setTodos(todos.map(item => {
+    if(item.id === todo.id){
     return {
 
         ...item , completed: !item.completed
     }
-    return item;
+
 }
 }))
 
